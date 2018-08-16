@@ -30,7 +30,14 @@ def move(array, index, character = "X")
   array[index]=character
 end
 
-def turn(input)
+def turn(board)
   puts "Please enter 1-9:"
+  input = gets.strip
+  index = input_to_index(input)
   
+    if valid_move?(board, index) == true
+      move(board, index)
+    elsif valid_move?(board, index) == false
+      
+  end
 end
