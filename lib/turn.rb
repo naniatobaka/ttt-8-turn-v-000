@@ -38,6 +38,8 @@ def turn(board)
     if valid_move?(board, index) == true
       move(board, index)
     elsif valid_move?(board, index) == false
-      
+      puts "invalid"
+      input = gets.strip
   end
+  display_board(board)
 end
