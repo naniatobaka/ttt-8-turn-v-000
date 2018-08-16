@@ -14,32 +14,32 @@ def valid_move?(board, index)
   end
 end
 
-def position_taken?(board, index_num)
-    if board[index_num] == " " || board[index_num] == "" || board[index_num] == nil
+def position_taken?(board, index)
+    if board[index] == " " || board[index] == "" || board[index] == nil
       return false
-    elsif board[index_num] == "X" || board[index_num] == "O"
+    elsif board[index] == "X" || board[index] == "O"
       return true
   end 
 end  
 
 def input_to_index(input)
-  input.to_i - 1
+  index = input.to_i - 1
 end
 
-def move(array, index, character = "X")
-  array[index]=character
+def move(board, index, character = "X")
+  board[index]=character
 end
 
 def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
   index = input_to_index(input)
-  
-    if valid_move?(board, index) == true
-      move(board, index)
-    elsif valid_move?(board, index) == false
-      puts "invalid"
-      input = gets.strip
-  end
-  display_board(board)
+    
+    if valid_move?(board, index)
+     move(board, index)
+      display_board(board)
+    else
+     turn(board)
+     
+  end 
 end
